@@ -1,0 +1,22 @@
+body {
+    background: url("background.png");
+}
+
+html, body{
+    height: 100%;
+}
+
+#index_container{
+    margin-top: 10%;
+    color: white;
+}
+
+#logo{
+    max-width: 60%;
+}
+
+#map{
+    margin: 5%;
+    width: 90%;
+    height: 72%;
+}
