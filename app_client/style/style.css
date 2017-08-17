@@ -1,21 +1,21 @@
 body {
-    background: url("background.png");
+    background: url("../img/background.png");
 }
 
-html, body{
+html, body {
     height: 100%;
 }
 
-#index_container{
+#index_container {
     margin-top: 10%;
     color: white;
 }
 
-#logo{
+#logo {
     max-width: 60%;
 }
 
-#map{
+#map {
     margin: 5%;
     width: 90%;
     height: 72%;
