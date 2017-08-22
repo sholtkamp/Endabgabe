@@ -2,8 +2,10 @@ body {
     background: url("../img/background.png");
 }
 
-html, body {
+html, body, #map_container{
     height: 100%;
+    width: 100%;
+    overflow: hidden;
 }
 
 #index_container {
@@ -26,12 +28,14 @@ html, body {
     height: 90%;
     max-height: 426px;
     max-width: 600px;
-    border: 2px solid #021a40;
+    border: 2px solid black;
 }
 
 #map {
-    margin: 5%;
-    width: 90%;
-    height: 72%;
-    border: 2px solid #021a40;
+    height: 70vw;
+    min-height: 300px;
+    max-height: 850px;
+    width: auto;
+    border: 2px solid black;
+    margin-bottom: 2%;
 }
