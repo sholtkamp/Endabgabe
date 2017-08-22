@@ -7,16 +7,31 @@ html, body {
 }
 
 #index_container {
-    margin-top: 10%;
+    margin-top: 5%;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#logo {
-    max-width: 60%;
+#flex_container {
+    margin-top: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#overview {
+    width: 90%;
+    height: 90%;
+    max-height: 426px;
+    max-width: 600px;
+    border: 2px solid #021a40;
 }
 
 #map {
     margin: 5%;
     width: 90%;
     height: 72%;
+    border: 2px solid #021a40;
 }
