@@ -42,7 +42,7 @@
 <body>
 <!-- Using Bootstrap navbar to display site navigation
  source: https://getbootstrap.com/components/#navbar (modified)-->
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default sharp">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -74,9 +74,50 @@
 </nav>
 
 <div class="container" id="map_container">
-    <div class="row">
+    <div class="row"> <!--left side-->
         <div class="col-xs-12 col-sm-12 col-lg-6 col-xl-6">
             <div id="map"></div> <!-- Leaflet usage to display user's current location-->
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-lg-3 col-xl-3"> <!-- middle-->
+            <div class="input-group" id="search">
+                <input type="text" class="form-control sharp" placeholder="Search for...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default sharp" type="button">Los!</button>
+                </span>
+            </div><!-- /input-group -->
+        </div>
+
+
+        <div class="col-xs-12 col-sm-12 col-lg-3 col-xl-3"> <!-- right side-->
+            <div>
+                <div class="panel panel-default sharp">
+                    <div class="panel-heading ">
+                        <h3 class="panel-title">Upload GeoJSON-File</h3>
+                    </div>
+                    <label class="btn btn-default btn-file btn-block sharp">
+                        <input id="GeoJSON_input" type='file'>
+                    </label>
+                </div>
+            </div>
+            <br>
+            <div class="panel panel-default sharp"> <!--Textual GeoJSON Input, taken from Tolksdrof, Pagel Aufgabe 5-->
+                <div class="panel-heading ">
+                    <h3 class="panel-title">Input textual GeoJSON-File</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label for="geojson-area">GeoJSON</label>
+                        <textarea class="form-control" rows="8" id="geojson-area"
+                                  placeholder="Paste your GeoJSON here"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-success sharp" onclick="loadGeoJSON()"><span
+                                class="glyphicon glyphicon-screenshot"></span> Show on Map
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -84,5 +125,8 @@
 </body>
 
 <!-- Personal scripts -->
-<script src="js/map_script.js"></script>
+<script src="js/map_setup.js"></script>
+<script src="js/loadTextualGeoJSON.js"></script>
+<script src="js/upload_GeoJSON.js"></script>
+
 </html>

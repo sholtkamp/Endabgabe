@@ -39,3 +39,11 @@ html, body, #map_container{
     border: 2px solid black;
     margin-bottom: 2%;
 }
+
+.sharp {
+    border-radius: 0;
+}
+
+#search {
+    margin-bottom: 20px;
+}
