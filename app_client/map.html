@@ -34,6 +34,12 @@
             integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
             crossorigin=""></script>
 
+    <!-- Leaflet Routing Machine -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.5/leaflet-routing-machine.css"/>
+    <!-- JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.5/leaflet-routing-machine.js"></script>
+
+
     <link rel="stylesheet" type="text/css" href="style/style.css">
 
 
@@ -74,22 +80,36 @@
 </nav>
 
 <div class="container" id="map_container">
-    <div class="row"> <!--left side-->
+    <div class="row">
+
+        <!--left side-->
         <div class="col-xs-12 col-sm-12 col-lg-6 col-xl-6">
             <div id="map"></div> <!-- Leaflet usage to display user's current location-->
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-lg-3 col-xl-3"> <!-- middle-->
+        <!-- middle-->
+        <div class="col-xs-12 col-sm-12 col-lg-3 col-xl-3">
+            <button class="btn btn-block sharp" type="button">
+                <span class="glyphicon glyphicon-flag" aria-hidden="true"></span> Navigation Mode
+            </button>
+
+
+            <button class="btn btn-block sharp" id="edit_btn" type="button">
+                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Editing Mode
+            </button>
+
+
             <div class="input-group" id="search">
                 <input type="text" class="form-control sharp" placeholder="Search for...">
                 <span class="input-group-btn">
                     <button class="btn btn-default sharp" type="button">Los!</button>
                 </span>
             </div><!-- /input-group -->
+
         </div>
 
-
-        <div class="col-xs-12 col-sm-12 col-lg-3 col-xl-3"> <!-- right side-->
+        <!-- right side-->
+        <div class="col-xs-12 col-sm-12 col-lg-3 col-xl-3">
             <div>
                 <div class="panel panel-default sharp">
                     <div class="panel-heading ">
@@ -128,5 +148,8 @@
 <script src="js/map_setup.js"></script>
 <script src="js/loadTextualGeoJSON.js"></script>
 <script src="js/upload_GeoJSON.js"></script>
+<script src="js/Control.Geocoder.js"></script>
+<script src="js/routing.js"></script>
+
 
 </html>

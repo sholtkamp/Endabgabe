@@ -44,6 +44,6 @@ html, body, #map_container{
     border-radius: 0;
 }
 
-#search {
+#search, #edit_btn {
     margin-bottom: 20px;
 }
