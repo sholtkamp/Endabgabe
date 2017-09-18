@@ -21,31 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="map.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="map.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app_client/map.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1649">
               <caret line="97" column="76" lean-forward="false" selection-start-line="97" selection-start-column="76" selection-end-line="97" selection-end-column="76" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="imprint.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app_client/imprint.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="32" column="34" lean-forward="false" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -70,7 +50,6 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/map.html" />
         <option value="$PROJECT_DIR$/style.css" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app_client/js/map_script.js" />
         <option value="$PROJECT_DIR$/app_client/index.html" />
         <option value="$PROJECT_DIR$/app_client/imprint.html" />
@@ -82,6 +61,7 @@
         <option value="$PROJECT_DIR$/app_client/map.html" />
         <option value="$PROJECT_DIR$/app_client/js/map_setup.js" />
         <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -325,12 +305,12 @@
       <workItem from="1503430067314" duration="166000" />
       <workItem from="1503492954079" duration="95000" />
       <workItem from="1505724855420" duration="5299000" />
-      <workItem from="1505736069178" duration="381000" />
+      <workItem from="1505736069178" duration="598000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19017000" />
+    <option name="totallyTimeSpent" value="19234000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -519,14 +499,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app_client/img/logo.png" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Geosoft-I/Aufgabe 6/app_client/map.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
@@ -653,10 +625,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app_client/map.html">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1649">
-          <caret line="97" column="76" lean-forward="false" selection-start-line="97" selection-start-column="76" selection-end-line="97" selection-end-column="76" />
+        <state relative-caret-position="170">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_client/imprint.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="32" column="34" lean-forward="false" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -669,10 +649,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app_client/imprint.html">
+    <entry file="file://$PROJECT_DIR$/app_client/map.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="32" column="34" lean-forward="false" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
+        <state relative-caret-position="1649">
+          <caret line="97" column="76" lean-forward="false" selection-start-line="97" selection-start-column="76" selection-end-line="97" selection-end-column="76" />
           <folding />
         </state>
       </provider>
