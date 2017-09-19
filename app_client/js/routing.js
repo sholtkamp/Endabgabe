@@ -1,7 +1,6 @@
 // Initializing routing control
 control = L.Routing.control({
-    waypoints: [
-    ],
+    waypoints: [],
     routeWhileDragging: true,
     geocoder: L.Control.Geocoder.nominatim()
 }).addTo(map);
@@ -9,9 +8,6 @@ control = L.Routing.control({
 /**
  * Function used to build buttons used in interactive navigation
  * @source http://www.liedman.net/leaflet-routing-machine/tutorials/interaction/
- * @param label
- * @param container
- * @returns {button}
  */
 function createButton(label, container) {
     var btn = L.DomUtil.create('button', '', container);
@@ -23,7 +19,7 @@ function createButton(label, container) {
  * function used to determine waypoints
  * @source http://www.liedman.net/leaflet-routing-machine/tutorials/interaction/
  */
-map.on('click', function(e) {
+map.on('click', function (e) {
     var container = L.DomUtil.create('div'),
         startBtn = createButton('Start from this location', container),
         destBtn = createButton('Go to this location', container);
@@ -34,12 +30,12 @@ map.on('click', function(e) {
         .openOn(map);
 
 
-    L.DomEvent.on(startBtn, 'click', function() {
+    L.DomEvent.on(startBtn, 'click', function () {
         control.spliceWaypoints(0, 1, e.latlng);
         map.closePopup();
     });
 
-    L.DomEvent.on(destBtn, 'click', function() {
+    L.DomEvent.on(destBtn, 'click', function () {
         control.spliceWaypoints(control.getWaypoints().length - 1, 1, e.latlng);
         map.closePopup();
     });

@@ -1,36 +1,46 @@
+/*General*/
 body {
     background: url("../img/background.png");
 }
 
-html, body, #map_container{
+html, body, #map_container, #index_container {
     height: 100%;
     width: 100%;
     overflow: hidden;
+    margin-top: 0;
+    padding-top: 0;
 }
 
-#index_container {
-    margin-top: 5%;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/*Index*/
+#index_navbar {
+    margin-bottom: 0;
 }
 
-#flex_container {
-    margin-top: 5%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#left_pic {
+    padding-left: 0;
 }
 
-#overview {
-    width: 90%;
-    height: 90%;
-    max-height: 426px;
-    max-width: 600px;
+#right_pic {
+    padding-right: 0;
+}
+
+.pic {
+    height: 100%;
+    max-width: 100%;
     border: 2px solid black;
 }
 
+#heading {
+    text-align: center;
+}
+
+#index_text {
+    margin-top: 15px;
+    color: black;
+    background: ghostwhite;
+}
+
+/*Map*/
 #map {
     height: 70vw;
     min-height: 300px;
@@ -40,14 +50,7 @@ html, body, #map_container{
     margin-bottom: 2%;
 }
 
-.sharp {
-    border-radius: 0;
-}
-
 #search {
     margin-bottom: 20px;
 }
 
-.notbold{
-    font-weight:normal
-}​

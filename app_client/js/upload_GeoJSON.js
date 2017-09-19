@@ -1,3 +1,7 @@
+/**
+ * Function used to upload and show external GeoJSON files
+ * taken from exercises
+ */
 document.getElementById("GeoJSON_input").addEventListener("change", function (evt) {
     var file = evt.target.files[0], // Read first file for this example.
         reader = new FileReader();
