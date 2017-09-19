@@ -44,6 +44,10 @@ html, body, #map_container{
     border-radius: 0;
 }
 
-#search, #edit_btn {
+#search {
     margin-bottom: 20px;
 }
+
+.notbold{
+    font-weight:normal
+}​
