@@ -1,12 +1,12 @@
 /*General*/
 body {
     background: url("../img/background.png");
+
 }
 
 html, body, #map_container, #index_container {
     height: 100%;
     width: 100%;
-    overflow: hidden;
     margin-top: 0;
     padding-top: 0;
 }

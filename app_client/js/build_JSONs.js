@@ -1,3 +1,6 @@
+var feature_GeoJSON;
+var stage_GeoJSON;
+
 function build_JSON() {
 
     /**
@@ -7,11 +10,11 @@ function build_JSON() {
     var long = document.getElementById("long").value;
     var name = document.getElementById("name").value;
     var cat = document.getElementById("cat").value;
-    var att1 = document.getElementById("att1").value;
+    //var att1 = document.getElementById("att1").value;
     var val1 = document.getElementById("val1").value;
-    var att2 = document.getElementById("att2").value;
+   // var att2 = document.getElementById("att2").value;
     var val2 = document.getElementById("val2").value;
-    var att3 = document.getElementById("att3").value;
+    //var att3 = document.getElementById("att3").value;
     var val3 = document.getElementById("val3").value;
 
 
@@ -20,28 +23,30 @@ function build_JSON() {
      * building GeoJSON with formdata
      * @type {{type: string, geometry: {type: string, coordinates: [*]}, properties: {name, category}}}
      */
-    var GeoJSON = {
-
-        "type": "Feature",
-        "geometry": {
-            "type": "Point",
-            "coordinates": [lat, long]
+    feature_GeoJSON = {
+        type: "Feature",
+        geometry: {
+            type: "Point",
+            coordinates: [lat, long]
         },
-        "properties": {
-            "name": name,
-            "category": cat,
-            [att1]: val1,
-            [att2]: val2,
-            [att3]: val3
-
+        properties: {
+            name: name,
+            category: cat,
+            attributes:{
+                att1: val1,
+                att2: val2,
+                att3: val3
+            }
         }
     };
 
-    var feature = L.geoJSON(GeoJSON).addTo(map);
+    var feature = L.geoJSON(feature_GeoJSON).addTo(map);
     feature.bindPopup(name + "<br><br>" + "Category: " + cat + "<br>" + att1 + ": " + val1 + "<br>" + att2 + ": " + val2 + "<br>" + att3 + ": " + val3).openPopup();
-    map.fitBounds(group.getBounds());
+    map.fitBounds(feature.getBounds());
 
-    console.log(GeoJSON);
+    saveFeature(feature_GeoJSON);
+
+    console.log(feature_GeoJSON);
 }
 
 function build_stage_JSON() {
@@ -64,7 +69,7 @@ function build_stage_JSON() {
      * building GeoJSON with formdata
      * @type {{type: string, geometry: {type: string, coordinates: [*]}, properties: {name, category}}}
      */
-    var GeoJSON = {
+    stage_GeoJSON = {
 
         "type": "Feature",
         "geometry": {
@@ -88,5 +93,30 @@ function build_stage_JSON() {
     control.spliceWaypoints(0, 1,[s_start_lat, s_start_long]);
     control.spliceWaypoints(control.getWaypoints().length - 1, 1, [s_finish_lat, s_finish_long]);
 
-    console.log(GeoJSON);
+    console.log(stage_GeoJSON);
 }
+var saveFeature = function(feature) {
+    console.log("in saveFeature")
+    $.ajax({
+        method: 'POST',
+        data: feature,
+        url:'/api/saveFeature',
+        success: function(){
+
+        },
+        error: function(){
+
+        }
+    })
+}
+
+var retrieveFeature = function () {
+    var name = document.getElementById("nameFeature").value;
+    console.log(name);
+    $.ajax({
+        method: 'GET',
+        url:'/api/retrieveFeature/' + name,
+        success: function(data){
+            console.log(data);
+        }
+    })}
