@@ -1,16 +1,27 @@
 var mongoose = require("mongoose");
 
 var featureSchema = new mongoose.Schema({
-    type: {
+
+    "type": {
         type: String,
-        required: true
+        required: true,
+        enum: ["Feature"],
+        default: "Feature"
     },
-    geometry: [{
+
+    geometry: {
+        "type": {
+            type: String,
+            required: true,
+            enum: ["Point"],
+            default: "Point"
+        },
+        "coordinates": {type: [Number]}
+    },
+
+    properties: {
         type: [mongoose.Schema.Types.Mixed]
-    }],
-    properties: [{
-        type: [mongoose.Schema.Types.Mixed]
-    }]
+    }
 });
 
 var stageSchema = new mongoose.Schema({

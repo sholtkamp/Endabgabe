@@ -10,11 +10,11 @@ function build_JSON() {
     var long = document.getElementById("long").value;
     var name = document.getElementById("name").value;
     var cat = document.getElementById("cat").value;
-    //var att1 = document.getElementById("att1").value;
+    var att1 = document.getElementById("att1").value;
     var val1 = document.getElementById("val1").value;
-   // var att2 = document.getElementById("att2").value;
+    var att2 = document.getElementById("att2").value;
     var val2 = document.getElementById("val2").value;
-    //var att3 = document.getElementById("att3").value;
+    var att3 = document.getElementById("att3").value;
     var val3 = document.getElementById("val3").value;
 
 
@@ -33,20 +33,18 @@ function build_JSON() {
             name: name,
             category: cat,
             attributes:{
-                att1: val1,
-                att2: val2,
-                att3: val3
+                [att1]: val1,
+                [att2]: val2,
+                [att3]: val3
             }
         }
     };
 
-    var feature = L.geoJSON(feature_GeoJSON).addTo(map);
-    feature.bindPopup(name + "<br><br>" + "Category: " + cat + "<br>" + att1 + ": " + val1 + "<br>" + att2 + ": " + val2 + "<br>" + att3 + ": " + val3).openPopup();
-    map.fitBounds(feature.getBounds());
+    var marker_feature = L.geoJSON(feature_GeoJSON).addTo(map);
+    marker_feature.bindPopup(name + "<br><br>" + "Category: " + cat + "<br>" + att1 + ": " + val1 + "<br>" + att2 + ": " + val2 + "<br>" + att3 + ": " + val3).openPopup();
+    map.fitBounds(marker_feature.getBounds());
 
     saveFeature(feature_GeoJSON);
-
-    console.log(feature_GeoJSON);
 }
 
 function build_stage_JSON() {
@@ -93,30 +91,43 @@ function build_stage_JSON() {
     control.spliceWaypoints(0, 1,[s_start_lat, s_start_long]);
     control.spliceWaypoints(control.getWaypoints().length - 1, 1, [s_finish_lat, s_finish_long]);
 
+    // Add Markers to the ends of the Route
+    var start_marker = L.marker([s_start_lat, s_start_long]);
+    start_marker.addTo(map);
+    start_marker.bindPopup("Start")
+    var finish_marker = L.marker([s_finish_lat, s_finish_long]);
+    finish_marker.addTo(map);
+    finish_marker.bindPopup("Finish")
+
+    var group = new L.featureGroup([start_marker, finish_marker]);
+    map.fitBounds(group.getBounds());
+
     console.log(stage_GeoJSON);
 }
-var saveFeature = function(feature) {
-    console.log("in saveFeature")
+
+saveFeature = function (feature) {
+    console.log("Got this Feature: ");
+    console.log(feature);
+    console.log("Work in progress: saveFeature");
     $.ajax({
         method: 'POST',
         data: feature,
-        url:'/api/saveFeature',
+        url: '/api/saveFeature',
         success: function(){
-
+            console.log("saved feature")
         },
-        error: function(){
-
+        error: function () {
+            console.log("failed to save feature")
         }
-    })
-}
+    });
+};
 
 var retrieveFeature = function () {
     var name = document.getElementById("nameFeature").value;
-    console.log(name);
     $.ajax({
         method: 'GET',
         url:'/api/retrieveFeature/' + name,
         success: function(data){
             console.log(data);
         }
-    })}
+    })};

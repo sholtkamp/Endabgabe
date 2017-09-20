@@ -100,8 +100,18 @@
                 </span>
             </div><!-- /input-group -->
 
-            <input id="nameFeature" placeholder="Name of feature">
-            <button class="btn btn-block" id="getFeature" onclick="retrieveFeature()">Export</button>
+
+            <div class="panel panel-default">
+                <div class="panel-heading" data-toggle="collapse" data-target="#featureName, #getFeature">
+                    <h3 class="panel-title"><span class="glyphicon glyphicon-open-file"></span> Import From Database
+                    </h3>
+                </div>
+                <input id="featureName" class="form-control collapse" placeholder="Feature Name">
+                <button class="btn btn-block collapse" id="getFeature" onclick="retrieveFeature()">Import from
+                    Database
+                </button>
+            </div>
+
 
             <!--Adding new Feature function-->
             <div class="panel panel-default">
@@ -203,7 +213,7 @@
 
                 </form>
                 <button id="stage_button" class="btn btn-success btn-block collapse" onclick="build_stage_JSON()">Build JSON
-                    and show
+                    and show on Map
                 </button>
             </div>
         </div>
