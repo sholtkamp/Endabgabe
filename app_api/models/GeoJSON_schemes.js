@@ -38,7 +38,8 @@ var stageSchema = new mongoose.Schema({
             type: String,
             required: true
         },
-        "coordinates": {type: [Number]}
+        "coordinates": {
+                type: [Number]}
     },
 
     properties: {

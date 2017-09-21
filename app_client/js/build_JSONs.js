@@ -50,7 +50,7 @@ function build_GeoJSON() {
     };
 
     logger.info("build_GeoJSON was called");
-    logger.info(feature_GeoJSON);
+    console.log(feature_GeoJSON);
     logger.info("was built");
 
     var marker_feature = L.geoJSON(feature_GeoJSON).addTo(map);

@@ -6,15 +6,16 @@ saveFeature = function (feature) {
         method: 'POST',
         data: feature,
         dataType: 'json',
-        contentType: 'json',
-        url: '/api/saveFeature',  //<------ Fehler: Internal Server Error 500
+        contentType: 'application/json',
+        url: './api/saveFeature',  //<------ Fehler: Internal Server Error 500
         success: function () {
             console.log("saved feature");
             console.log(feature);
         },
         error: function () {
             console.log("failed to save feature")
-        }
+        },
+        timeout: 3000
     });
 };
 
