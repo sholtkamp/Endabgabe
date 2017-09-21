@@ -1,5 +1,6 @@
 var mongoose = require("mongoose");
 
+// Building Mongoose Schema for feature_GeoJSON
 var featureSchema = new mongoose.Schema({
 
     "type": {
@@ -24,29 +25,25 @@ var featureSchema = new mongoose.Schema({
     }
 });
 
+//Building Mongoose Schema for stage_GeoJSON
 var stageSchema = new mongoose.Schema({
 
     "type": {
         type: String,
         required: true
     },
-    "geometry": [{
-        "type": String,
-        "coordinates": [mongoose.Schema.Types.Mixed]
-    }],
-    "properties": [{
-        "name": String,
-        "start_date": Date,
-        "finish_date": Date,
-        "link": String,
-        "start_pic": {
-            data: Buffer,
-            contentType: String},
-        "finish_pic": {
-            data: Buffer,
-            contentType: String},
 
-    }]
+    geometry: {
+        "type": {
+            type: String,
+            required: true
+        },
+        "coordinates": {type: [Number]}
+    },
+
+    properties: {
+        type: [mongoose.Schema.Types.Mixed]
+    }
 });
 
 mongoose.model('Feature',featureSchema);

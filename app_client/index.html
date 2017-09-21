@@ -27,7 +27,7 @@
     <link rel="stylesheet" type="text/css" href="style/style.css">
 </head>
 
-<body>
+<body style="overflow: hidden">
 <!-- Using Bootstrap navbar to display site navigation
  source: https://getbootstrap.com/components/#navbar (modified)-->
 <nav class="navbar navbar-default" id="index_navbar">
@@ -68,7 +68,7 @@
 
     <div class="row justify-content-between">
         <div class="col-lg-3 hidden-xs hidden-sm" id="left_pic">
-            <img class="image-responsive pic" src="img/bg-habillage_GAUCHE_VUE.jpg">
+            <img class="image-responsive pic" src="img/left_pic.jpg">
         </div>
 
         <div class="col-lg-6" id="index_text">
@@ -91,54 +91,61 @@
                 </li>
                 <li>Hochladen von Fotos ermöglichen (für Start und Ziel)</li>
                 <li>Möglichkeit, Bilder und Beschreibungen als Marker ‘entlang der Strecke’
-                    hinzuzufügen</li>
+                    hinzuzufügen
+                </li>
                 <li>Zur jeder Etappe soll ein Layer erstellt werden</li>
             </ul>
             <li><b>Import</b> Funktionalität</li>
-                <ul>
-                    <li>Hochladen von einzelnen Objekten oder ganzen Etappen aus
-                        geoJSON-Datei</li>
-                    <li>Textfeld-Import von GeoJSON Objekten</li>
-                    <li>Fehlerüberprüfung</li>
-                </ul>
-                <li>Von jedem Zuschauerplatz, Start und Ziel soll auf Knopfdruck jeweils
-                    eine <b>automatische Navigation</b> zum nächstgelegenen Parkplatz erstellt und eingefügt werden.</li>
-                <ul>
-                    <li>Der Navigations-Pfad soll automatisch entfernt werden, wenn der User ein
-                        anderes Objekt oder Event “anwählt”</li>
-                    <li>Minimalanforderung: Auto-Navigation</li>
-                    <li>multi-modaler Verkehr (z.B. Bus, Fahrrad, zu Fuß)</li>
-                </ul>
-                <li><b>Speichern von Objekten und Etappen in eigener MongoDB (ggf. mit maximaler
-                    Auflösung - node.js plugin)</b></li>
-                <ul>
-                    <li>Laden soll wieder möglich sein </li>
-                    <li>Strecken suchen nach Datum/Nummer, Start und Ziel, etvl. Name</li>
-                    <li>Einrichten von Permalinks zu allen Objekten</li>
-                    <li>Strecken bearbeiten ggf wieder löschen</li>
-                </ul>
-                <li>Zu jedem Veranstaltungsort soll automatisch der erste Absatz des
-                    dazugehörigen <b>Wikipedia-Artikels</b> eingebunden werden (wenn vorhanden).</li>
-                <li><b>Suche</b></li>
-                <ul>
-                    <li>nach Etappen (nach Start, Ziel und Name)</li>
-                    <li>nach Terminen</li>
-                    <li>nach Parkplätzen für eine Etappe nach Kapazität.</li>
-                </ul>
+            <ul>
+                <li>Hochladen von einzelnen Objekten oder ganzen Etappen aus
+                    geoJSON-Datei
+                </li>
+                <li>Textfeld-Import von GeoJSON Objekten</li>
+                <li>Fehlerüberprüfung</li>
+            </ul>
+            <li>Von jedem Zuschauerplatz, Start und Ziel soll auf Knopfdruck jeweils
+                eine <b>automatische Navigation</b> zum nächstgelegenen Parkplatz erstellt und eingefügt werden.
+            </li>
+            <ul>
+                <li>Der Navigations-Pfad soll automatisch entfernt werden, wenn der User ein
+                    anderes Objekt oder Event “anwählt”
+                </li>
+                <li>Minimalanforderung: Auto-Navigation</li>
+                <li>multi-modaler Verkehr (z.B. Bus, Fahrrad, zu Fuß)</li>
+            </ul>
+            <li><b>Speichern von Objekten und Etappen in eigener MongoDB (ggf. mit maximaler
+                Auflösung - node.js plugin)</b></li>
+            <ul>
+                <li>Laden soll wieder möglich sein</li>
+                <li>Strecken suchen nach Datum/Nummer, Start und Ziel, etvl. Name</li>
+                <li>Einrichten von Permalinks zu allen Objekten</li>
+                <li>Strecken bearbeiten ggf wieder löschen</li>
+            </ul>
+            <li>Zu jedem Veranstaltungsort soll automatisch der erste Absatz des
+                dazugehörigen <b>Wikipedia-Artikels</b> eingebunden werden (wenn vorhanden).
+            </li>
+            <br>
+            <li><b>Suche</b></li>
+            <ul>
+                <li>nach Etappen (nach Start, Ziel und Name)</li>
+                <li>nach Terminen</li>
+                <li>nach Parkplätzen für eine Etappe nach Kapazität.</li>
+            </ul>
             <li>Sinnvolles <b>Logging</b> von Funktionen</li>
             <li>Referenzieren eines jeden Objektes möglich sein <b>(Permalink)</b></li>
-                <li>Webseite soll eine Startseite und ein Impressum haben, für die geforderten
-                    Funktionen dürfen mehr als eine Seite erstellt werden</li>
-                <li>Responsive WebDesign</li>
-                <ul>
-                    <li>Karte soll auch auf dem Smartphone gut bedienbar sein</li>
-                </ul>
-                <li>Mindestens 5 Sinnvolle TestUnits mit Mocha.js</li>
+            <li>Webseite soll eine Startseite und ein Impressum haben, für die geforderten
+                Funktionen dürfen mehr als eine Seite erstellt werden
+            </li>
+            <li>Responsive WebDesign</li>
+            <ul>
+                <li>Karte soll auch auf dem Smartphone gut bedienbar sein</li>
+            </ul>
+            <li>Mindestens 5 Sinnvolle TestUnits mit Mocha.js</li>
             </ul>
         </div>
 
         <div class="col-md-3 hidden-xs hidden-sm" id="right_pic">
-            <img class="image-responsive pic" src="img/bg-habillage_DROITE_VUE.jpg">
+            <img class="image-responsive pic" src="img/right_pic.jpg">
         </div>
     </div>
 </div>

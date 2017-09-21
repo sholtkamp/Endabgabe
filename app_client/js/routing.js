@@ -5,38 +5,33 @@ control = L.Routing.control({
     geocoder: L.Control.Geocoder.nominatim()
 }).addTo(map);
 
-/**
- * Function used to build buttons used in interactive navigation
- * @source http://www.liedman.net/leaflet-routing-machine/tutorials/interaction/
- */
-function createButton(label, container) {
-    var btn = L.DomUtil.create('button', '', container);
-    btn.setAttribute('type', 'button');
-    btn.innerHTML = label;
-    return btn;
-}
-/**
- * function used to determine waypoints
- * @source http://www.liedman.net/leaflet-routing-machine/tutorials/interaction/
- */
-map.on('click', function (e) {
-    var container = L.DomUtil.create('div'),
-        startBtn = createButton('Start from this location', container),
-        destBtn = createButton('Go to this location', container);
-
-    L.popup()
-        .setContent(container)
-        .setLatLng(e.latlng)
-        .openOn(map);
+logger.info("Control is ready");
 
 
-    L.DomEvent.on(startBtn, 'click', function () {
-        control.spliceWaypoints(0, 1, e.latlng);
-        map.closePopup();
-    });
+control.on('routeselected', function(e) {
 
-    L.DomEvent.on(destBtn, 'click', function () {
-        control.spliceWaypoints(control.getWaypoints().length - 1, 1, e.latlng);
-        map.closePopup();
-    });
+    logger.info("You selected a route");
+
+    var start_wp = (control.getWaypoints()[0]); //returns starting waypoint info
+    document.getElementById("s_start_place").value = start_wp.name.split(",", 1); //sets the city name in the form
+    document.getElementById("s_start_lat").value = start_wp.latLng.lat; //adds lat to form
+    document.getElementById("s_start_long").value = start_wp.latLng.lng; //adds long to form
+
+    logger.info("Start WP name is: " + start_wp.name.split(",", 1) + " Looking it up for you.");
+    var start_query = "http://en.wikipedia.org/wiki/" + start_wp.name.split(",", 1);
+    (queryWiki(start_query));
+
+    var finish_wp = (control.getWaypoints()[control.getWaypoints().length - 1]); // returns finish waypoint info
+    document.getElementById("s_finish_place").value = finish_wp.name.split(",", 1); //sets the city name in the form
+    document.getElementById("s_finish_lat").value = finish_wp.latLng.lat; //adds lat to form
+    document.getElementById("s_finish_long").value = finish_wp.latLng.lng; //adds long to form
+
+    logger.info("Finish WP name is: " + finish_wp.name.split(",", 1) + " Looking it up for you.");
+    var finish_query = "http://en.wikipedia.org/wiki/" + finish_wp.name.split(",", 1);
+    queryWiki(finish_query);
+
+
+    logger.info("Your route was added to the form");
 });
+
+// console.log(route.coordinates);

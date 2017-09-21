@@ -41,6 +41,9 @@
     <!-- JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.5/leaflet-routing-machine.js"></script>
 
+    <!-- JSNLog -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsnlog/2.24.1/jsnlog.min.js"></script>
+    <script src="js/jsnlogger.js"></script>
 
     <link rel="stylesheet" type="text/css" href="style/style.css">
 
@@ -115,7 +118,8 @@
 
             <!--Adding new Feature function-->
             <div class="panel panel-default">
-                <div class="panel-heading" data-toggle="collapse" data-target="#create_form, #create_button">
+                <div class="panel-heading" data-toggle="collapse"
+                     data-target="#create_form, #create_button, #post_feature_button">
                     <h3 class="panel-title"><span class="glyphicon glyphicon-map-marker"></span> Add new Feature</h3>
                 </div>
                 <form id="create_form" class="collapse">
@@ -126,7 +130,9 @@
                     </div>
 
                     <div class="form-inline">
-                        <label>Coordinates: </label><br>
+                        <label>Coordinates:&nbsp;</label><span class="glyphicon glyphicon-screenshot"
+                                                               onclick="set_place()">  </span>
+                        <br>
                         <input type="number" class="form-control" id="lat" placeholder="Enter Latitude">
                         <input type="number" class="form-control" id="long" placeholder="Enter Longitude">
                     </div>
@@ -154,18 +160,26 @@
                         <input class="form-control" id="val3" placeholder="Enter Value">
                     </div>
 
-                    <input class="btn btn-block" type="reset" value="Reset">
+                    <input class="btn btn-block" type="reset" value="Reset" style="margin-bottom: 5px">
 
                 </form>
-                <button id="create_button" class="btn btn-success btn-block collapse" onclick="build_JSON()">Build JSON
-                    and show
-                </button>
+                <div>
+                    <button
+                            id="create_button" class="btn btn-success btn-block collapse" onclick="build_GeoJSON()">
+                        Build Feature
+                    </button>
+                    <button
+                            id="post_feature_button" class="btn btn-success btn-block collapse"
+                            onclick="saveFeature(feature_GeoJSON)">Save to Database
+                    </button>
+                </div>
             </div>
 
             <!--Adding new Stages function-->
             <div class="panel panel-default">
-                <div class="panel-heading" data-toggle="collapse" data-target="#stage_form, #stage_button">
-                    <h3 class="panel-title"><span class="glyphicon glyphicon-flag"></span> Add new Stage</h3>
+                <div class="panel-heading" data-toggle="collapse"
+                     data-target="#stage_form, #stage_button, #post_stage_button">
+                    <h3 class="panel-title"><span class="glyphicon glyphicon-flag"></span> Add new Stage from Route</h3>
                 </div>
                 <form id="stage_form" class="collapse">
 
@@ -175,27 +189,27 @@
                     </div>
 
                     <div class="form-inline">
-                        <label>Starting Coordinates: </label><br>
+                        <label>Starting Point</label><br>
+                        <input type="text" class="form-control" id="s_start_place" placeholder="Enter City">
                         <input type="number" class="form-control" id="s_start_lat" placeholder="Enter Latitude">
                         <input type="number" class="form-control" id="s_start_long" placeholder="Enter Longitude">
                     </div>
                     <br>
                     <div class="form-inline">
-                        <label>Finish Coordinates: </label><br>
+                        <label>Finish Point</label><br>
+                        <input type="text" class="form-control" id="s_finish_place" placeholder="Enter City">
                         <input type="number" class="form-control" id="s_finish_lat" placeholder="Enter Latitude">
                         <input type="number" class="form-control" id="s_finish_long" placeholder="Enter Longitude">
                     </div>
                     <br>
-                    <div class="form-group">
-                        <label>Start date: </label>
+                    <div class="form-inline">
+                        <label>Dates: </label>
+                        <br>
                         <input type="date" class="form-control" id="s_start_date">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Finish date: </label>
+                         -
                         <input type="date" class="form-control" id="s_finish_date">
                     </div>
-
+                    <br>
                     <div class="form-group">
                         <label>Link: </label>
                         <input type="url" class="form-control" id="s_link" placeholder="Enter Link">
@@ -209,11 +223,15 @@
                         <input id="s_finish_up" type="file">
                     </div>
                     <br>
-                    <input class="btn btn-block" type="reset" value="Reset">
+                    <input class="btn btn-block" type="reset" value="Reset" style="margin-bottom: 5px">
 
                 </form>
-                <button id="stage_button" class="btn btn-success btn-block collapse" onclick="build_stage_JSON()">Build JSON
-                    and show on Map
+                <button id="stage_button" class="btn btn-success btn-block collapse" onclick="build_stage_JSON()">
+                    Build Stage
+                </button>
+                <button
+                        id="post_stage_button" class="btn btn-success btn-block collapse"
+                        onclick="saveFeature(feature_GeoJSON)">Save to Database
                 </button>
             </div>
         </div>
@@ -261,6 +279,8 @@
 <script src="js/Control.Geocoder.js"></script>
 <script src="js/routing.js"></script>
 <script src="js/build_JSONs.js"></script>
-
+<script src="js/get_built_GeoJSON.js"></script>
+<script src="js/post_built_GeoJSON.js"></script>
+<script src="./js/wiki.js"></script>
 
 </html>

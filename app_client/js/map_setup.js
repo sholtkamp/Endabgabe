@@ -8,4 +8,6 @@ var map = L.map('map');
 map.setView([40.6, -0.944844], 6);
 map.addLayer(osm);
 
+JL().info("Map is ready");
+
 

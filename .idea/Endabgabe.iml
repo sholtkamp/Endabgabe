@@ -10,5 +10,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="leaflet.ajax" level="application" />
     <orderEntry type="library" name="leaflet-routing-machine" level="application" />
+    <orderEntry type="library" name="jsnlog" level="application" />
+    <orderEntry type="library" name="mapzen" level="application" />
   </component>
 </module>

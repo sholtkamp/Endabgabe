@@ -36,8 +36,7 @@ html, body, #map_container, #index_container {
 
 #index_text {
     margin-top: 15px;
-    color: black;
-    background: ghostwhite;
+    color: lightgray;
 }
 
 /*Map*/
@@ -54,4 +53,13 @@ html, body, #map_container, #index_container {
     margin-bottom: 20px;
 }
 
+/*Imprint*/
+#imprint_navbar {
+    margin-bottom: 0;
+}
 
+#diclaimer {
+    color: lightgray;
+    margin-top: -20px;
+
+}
