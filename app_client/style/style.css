@@ -12,21 +12,16 @@ html, body, #map_container, #index_container {
 }
 
 /*Index*/
-#index_body {
-    overflow-y: scroll;
-}
 #index_navbar {
     margin-bottom: 0;
 }
 
 #left_pic {
     padding-left: 0;
-    height: 950px;
 }
 
 #right_pic {
     padding-right: 0;
-    height: 950px;
 }
 
 .pic {
@@ -59,10 +54,6 @@ html, body, #map_container, #index_container {
 }
 
 /*Imprint*/
-#imprint_body {
-    overflow-y: scroll;
-}
-
 #imprint_navbar {
     margin-bottom: 0;
 }

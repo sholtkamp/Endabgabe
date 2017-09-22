@@ -19,10 +19,7 @@ control.on('routeselected', function(e) {
 
     logger.info("Start WP name is: " + start_wp.name.split(",", 1) + " Looking it up for you.");
     var start_query = "http://en.wikipedia.org/wiki/" + start_wp.name.split(",", 1);
-    queryWiki(start_query)
-        .then(function (data) {
-            console.log(data);
-        });
+    (queryWiki(start_query));
 
     var finish_wp = (control.getWaypoints()[control.getWaypoints().length - 1]); // returns finish waypoint info
     document.getElementById("s_finish_place").value = finish_wp.name.split(",", 1); //sets the city name in the form
@@ -37,6 +34,4 @@ control.on('routeselected', function(e) {
     logger.info("Your route was added to the form");
 });
 
-// console.log(route.coordinates); to get every coordinate pair in the route
-
-// routeControl.getPlan().setWaypoints([]); to clear the route
+// console.log(route.coordinates);
