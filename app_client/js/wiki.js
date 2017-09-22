@@ -47,8 +47,7 @@ function queryWiki(url) {
      paragraph = first;
      return paragraph;
  });
- console.log("mitte " + paragraph);
+ console.log("außen: " + paragraph);
  first_paragraph = paragraph;
  return first_paragraph;
- console.log("außen " + first_paragraph);
 }
