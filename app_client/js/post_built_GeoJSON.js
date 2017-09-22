@@ -5,17 +5,17 @@ saveFeature = function (feature) {
     $.ajax({
         method: 'POST',
         data: feature,
-        dataType: 'json',
-        contentType: 'application/json',
-        url: './api/saveFeature',  //<------ Fehler: Internal Server Error 500
-        success: function () {
+        contentType: "application/json",
+        dataType: "json",
+        url: '/api/saveFeature',
+        success: function (res) {
             console.log("saved feature");
             console.log(feature);
+            console.log(res);
         },
         error: function () {
             console.log("failed to save feature")
-        },
-        timeout: 3000
+        }
     });
 };
 

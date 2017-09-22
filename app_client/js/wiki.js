@@ -6,11 +6,8 @@ function queryWiki(url) {
 
     var title = url.split("/");
     title = title[title.length - 1];
-    var first_paragraph;
 
  $.getJSON("http://en.wikipedia.org/w/api.php?action=parse&prop=exintro=true&page=" + title + "&prop=text&section=0&format=json&callback=?", function (data) {
-
-     var paragraph = "";
 
      for (text in data.parse.text) {
          var text = data.parse.text[text].split("<p>");
@@ -44,10 +41,6 @@ function queryWiki(url) {
          var first = pText.split("\n", 1); // Leaves only the first paragraph
      }
      console.log("innen: " + first);
-     paragraph = first;
-     return paragraph;
+     return first;
  });
- console.log("außen: " + paragraph);
- first_paragraph = paragraph;
- return first_paragraph;
 }
