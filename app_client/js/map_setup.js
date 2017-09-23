@@ -8,6 +8,12 @@ var map = L.map('map');
 map.setView([40.6, -0.944844], 6);
 map.addLayer(osm);
 
-JL().info("Map is ready");
+logger.info("Map is ready");
 
+var baseMaps = {
+    "OSM-Basemap": osm,
+};
 
+var layerControl = L.control.layers(baseMaps).addTo(map);
+
+logger.info("Map Control is ready");

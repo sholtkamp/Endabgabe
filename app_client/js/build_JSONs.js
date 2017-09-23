@@ -41,7 +41,7 @@ function build_GeoJSON() {
         "properties": {
             "name": name,
             "category": cat,
-            "attributes":{
+            "attributes": {
                 [att1]: val1,
                 [att2]: val2,
                 [att3]: val3
@@ -53,9 +53,20 @@ function build_GeoJSON() {
     console.log(feature_GeoJSON);
     logger.info("was built");
 
-    var marker_feature = L.geoJSON(feature_GeoJSON).addTo(map);
-    marker_feature.bindPopup(name + "<br><br>" + "Category: " + cat + "<br>" + att1 + ": " + val1 + "<br>" + att2 + ": " + val2 + "<br>" + att3 + ": " + val3).openPopup();
-    map.fitBounds(marker_feature.getBounds());
+    addNewLayer(feature_GeoJSON);
+
+    /**
+     * Builds a Marker for the geo_JSON and places it on the map in a new Layer
+     */
+    function addNewLayer() {
+
+        var marker_feature = L.geoJSON(feature_GeoJSON).addTo(map);
+        marker_feature.bindPopup(name + "<br><br>" + "Category: " + cat + "<br>" + att1 + ": " + val1 + "<br>" + att2 + ": " + val2 + "<br>" + att3 + ": " + val3).openPopup();
+        map.fitBounds(marker_feature.getBounds());
+
+        layerControl.addOverlay(marker_feature, feature_GeoJSON.properties.name);
+
+    }
 }
 
 function build_stage_JSON() {
@@ -84,13 +95,12 @@ function build_stage_JSON() {
 
         "type": "Feature",
         "geometry": {
-            "type": "Line",
-            "coordinates": [[s_start_lat, s_start_long],
-                          [s_finish_lat, s_finish_long]]
-
+            "type": "LineString",
+            "coordinates":    [[s_start_lat, s_start_long],
+                [s_finish_lat, s_finish_long]]
         },
         "properties": {
-            "name": name,
+            "name": s_name,
             "start": start,
             "finish": finish,
             "start_date": s_start_date,
@@ -102,13 +112,22 @@ function build_stage_JSON() {
         }
     };
 
-    // // Calculates Navigation between Start and Finish
-    // control.spliceWaypoints(0, 1,[s_start_lat, s_start_long]);
-    // control.spliceWaypoints(control.getWaypoints().length - 1, 1, [s_finish_lat, s_finish_long]);
-
-
     logger.info("build_stage_GeoJSON was called");
     logger.info(stage_GeoJSON);
     logger.info("was built");
+
+    addNewStageLayer(stage_GeoJSON);
+
+    /**
+     * Builds Markers for the stage_GeoJSON and places it on the map in a new Layer
+     */
+    function addNewStageLayer() {
+
+        var newLayer = L.geoJSON(stage_GeoJSON).addTo(map);
+
+
+        layerControl.addOverlay(newLayer, stage_GeoJSON.properties.name);
+
+    }
 }
 
