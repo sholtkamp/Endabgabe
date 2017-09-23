@@ -6,7 +6,7 @@ saveFeature = function (feature) {
         method: 'POST',
         data: feature,
         contentType: "application/json",
-        dataType: "json",
+        dataType: "application/json",
         url: '/api/saveFeature',
         success: function (res) {
             console.log("saved feature");

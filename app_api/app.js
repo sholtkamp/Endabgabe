@@ -2,9 +2,6 @@ var mongoose = require("mongoose");
 var Feature = mongoose.model("Feature");
 var Stage = mongoose.model("Stage");
 
-let feature = new Feature;
-console.log(feature);
-
 module.exports = {
     saveFeature: function (req, res) {
 
