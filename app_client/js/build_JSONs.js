@@ -84,7 +84,6 @@ function build_stage_JSON() {
 
     /**
      * building GeoJSON with formdata
-     * @type {{type: string, geometry: {type: string, coordinates: [*]}, properties: {name, category}}}
      */
     stage_GeoJSON = {
 

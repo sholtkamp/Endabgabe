@@ -20,3 +20,13 @@ var retrieveStage = function () {
     })};
 
 //neu ende
+
+var getThisFeature = function (nameOfFeature) {
+    $.ajax({
+        method: 'GET',
+        url:'/api/retrieveFeature/' + nameOfFeature,
+        success: function(data){
+            console.log(data);
+            ///Hier dann zoomen oder so
+        }
+    })};
