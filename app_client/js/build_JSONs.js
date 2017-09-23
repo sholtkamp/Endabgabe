@@ -58,13 +58,13 @@ function build_GeoJSON() {
     /**
      * Builds a Marker for the geo_JSON and places it on the map in a new Layer
      */
-    function addNewLayer() {
+    function addNewLayer(JSON) {
 
-        var marker_feature = L.geoJSON(feature_GeoJSON).addTo(map);
+        var marker_feature = L.geoJSON(JSON).addTo(map);
         marker_feature.bindPopup(name + "<br><br>" + "Category: " + cat + "<br>" + att1 + ": " + val1 + "<br>" + att2 + ": " + val2 + "<br>" + att3 + ": " + val3).openPopup();
         map.fitBounds(marker_feature.getBounds());
 
-        layerControl.addOverlay(marker_feature, feature_GeoJSON.properties.name);
+        layerControl.addOverlay(marker_feature, JSON.properties.name);
 
     }
 }
@@ -121,12 +121,15 @@ function build_stage_JSON() {
     /**
      * Builds Markers for the stage_GeoJSON and places it on the map in a new Layer
      */
-    function addNewStageLayer() {
+    function addNewStageLayer(JSON) {
+        // var route = route.coordinates(JSON);
+        //
+        // var newLayer = L.geoJSON(stage_GeoJSON);
+        var s_marker = L.marker([39.61, -105.02]).bindPopup(document.getElementById("s_start_wiki").value).addTo(map);
+        // var f_marker = (control.getWaypoints()[control.getWaypoints().length - 1].latlng).bindPopup(document.getElementById("s_finish_wiki").value);
 
-        var newLayer = L.geoJSON(stage_GeoJSON).addTo(map);
-
-
-        layerControl.addOverlay(newLayer, stage_GeoJSON.properties.name);
+        // var stage_group = L.layerGroup([newLayer]).addTo(map);
+        // layerControl.addOverlay(stage_group, stage_GeoJSON.properties.name);
 
     }
 }

@@ -117,4 +117,3 @@ control.on('routeselected', function(e) {
     logger.info("Your route was added to the form");
 });
 
-// console.log(route.coordinates);
