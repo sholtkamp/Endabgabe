@@ -1,5 +1,5 @@
 var retrieveFeature = function () {
-    var name = document.getElementById("nameFeature").value;
+    var name = document.getElementById("featureName").value;
     $.ajax({
         method: 'GET',
         url:'/api/retrieveFeature/' + name,
