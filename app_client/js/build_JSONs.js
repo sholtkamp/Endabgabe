@@ -17,13 +17,9 @@ function build_GeoJSON() {
 
     var lat = document.getElementById("lat").value;
     var long = document.getElementById("long").value;
-    var name = document.getElementById("name").value;
     var cat = document.getElementById("cat").value;
-    var att1 = document.getElementById("att1").value;
     var val1 = document.getElementById("val1").value;
-    var att2 = document.getElementById("att2").value;
     var val2 = document.getElementById("val2").value;
-    var att3 = document.getElementById("att3").value;
     var val3 = document.getElementById("val3").value;
 
 
@@ -39,12 +35,11 @@ function build_GeoJSON() {
             "coordinates": [lat, long]
         },
         "properties": {
-            "name": name,
             "category": cat,
             "attributes": {
-                [att1]: val1,
-                [att2]: val2,
-                [att3]: val3
+                "name": val1,
+                "price": val2,
+                "capacity": val3
             }
         }
     };
@@ -61,7 +56,7 @@ function build_GeoJSON() {
     function addNewLayer(JSON) {
 
         var marker_feature = L.geoJSON(JSON).addTo(map);
-        marker_feature.bindPopup(name + "<br><br>" + "Category: " + cat + "<br>" + att1 + ": " + val1 + "<br>" + att2 + ": " + val2 + "<br>" + att3 + ": " + val3).openPopup();
+        marker_feature.bindPopup("möp").openPopup();
         map.fitBounds(marker_feature.getBounds());
 
         layerControl.addOverlay(marker_feature, JSON.properties.name);

@@ -21,7 +21,28 @@ var featureSchema = new mongoose.Schema({
     },
 
     properties: {
-        type: [mongoose.Schema.Types.Mixed]
+        "category": {
+            type: String,
+            required: true,
+        },
+        "attributes": {
+
+            "name": {
+                type: String,
+                required: true,
+                unique: true,
+            },
+
+            "price": {
+                type: Number,
+                required: true
+
+            },
+            "capacity": {
+                type: Number,
+                required: true,
+            }
+        }
     }
 });
 

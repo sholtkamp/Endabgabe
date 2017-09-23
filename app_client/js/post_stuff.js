@@ -5,8 +5,8 @@ saveFeature = function (feature) {
     $.ajax({
         method: 'POST',
         data: feature,
-        contentType: "application/json",
-        dataType: "application/json",
+        //contentType: "application/json", causes 400 Bad Response Error
+        //dataType: "application/json", causes 400 Bad Response Error
         url: '/api/saveFeature',
         success: function (res) {
             console.log("saved feature");

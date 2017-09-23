@@ -9,27 +9,31 @@ module.exports = {
         var feature = new Feature;
 
         feature.type = req.body.type;
-        feature.properties = req.body.properties;
         feature.geometry = req.body.geometry;
+        feature.properties.category = req.body.properties.category;
+        feature.properties.attributes.name = req.body.properties.attributes.name;
+        feature.properties.attributes.price = req.body.properties.attributes.price;
+        feature.properties.attributes.capacity = req.body.properties.attributes.capacity;
+
+        console.log(req);
 
         console.log(feature);
 
         feature.save(function (err) {
             if (err) {
-                console.log("ERROR:");
                 console.log(err);
-                res.message("Error encountered: " + err);
-                res.status(400).send();
+                res.status(400).send(err);
+            } else {
+                console.log("saved");
+                console.log(feature);
+                res.status(200).send(feature);
             }
-            console.log("saved");
-            console.log(feature);
-            res.status(200).send(feature);
         })
     },
 
     retrieveFeature: function (req, res) {
         console.log(req.params.name)
-        Feature.findById(req.params.name, function (err, feature) {
+        Feature.find({ 'properties.attributes.name' : req.params.name }, function (err, feature) {
             if (err) {
                 console.log('ERROR')
                 res.status(404).json("feature not found");
