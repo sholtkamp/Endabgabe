@@ -9,38 +9,19 @@ document.getElementById("GeoJSON_input").addEventListener("change", function (ev
     reader.onload = function (e) {
         logger.info("Upload started");
         var fileText = e.target.result;
-        // var extension = getExtension(fileText);
-        // logger.info("Files extension: " + extension);
-        // var right_type = isJSON(extension);
-        //
-        // if (right_type == true) {
 
-            logger.info("File is a .JSON file");
+        //Tries to add uploaded file to the map
+        //if it is not a valid GeoJSON an error is thrown
+        try {
             fileData = JSON.parse(fileText);
             group = L.geoJSON(fileData).addTo(map);
             map.fitBounds(group.getBounds());
-        // }
-        //
-        // else {
-        //     logger.info("File is NOT a .JSON file")
-        // }
+            logger.info("File was a GeoJSON file");
+        }
+        catch(err) {
+            logger.info("File is NOT a GeoJSON file");
+            window.alert("Please choose a GeoJSON for upload");
+        }
     };
-
     reader.readAsText(file);
 });
-
-// function getExtension(filename) {
-//     var parts = filename.split('.');
-//     return parts[parts.length - 1];
-// }
-//
-// function isJSON(filename) {
-//     var ext = getExtension(filename);
-//     switch (ext.toLowerCase()) {
-//         case 'application/json':
-//             return true;
-//     }
-//     return false;
-// }
-
-// https://stackoverflow.com/questions/7977084/check-file-type-when-form-submit

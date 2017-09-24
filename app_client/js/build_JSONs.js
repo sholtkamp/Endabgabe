@@ -71,11 +71,7 @@ function build_stage_JSON() {
      */
     var s_name = document.getElementById("s_name").value;
     var start = document.getElementById("s_start_place").value;
-    var s_start_lat = document.getElementById("s_start_lat").value;
-    var s_start_long = document.getElementById("s_start_long").value;
     var finish = document.getElementById("s_finish_place").value;
-    var s_finish_lat = document.getElementById("s_finish_lat").value;
-    var s_finish_long = document.getElementById("s_finish_long").value;
     var s_start_date = document.getElementById("s_start_date").value;
     var s_finish_date = document.getElementById("s_finish_date").value;
     var s_link = document.getElementById("s_link").value;
@@ -90,8 +86,7 @@ function build_stage_JSON() {
         "type": "Feature",
         "geometry": {
             "type": "LineString",
-            "coordinates":    [[s_start_lat, s_start_long],
-                [s_finish_lat, s_finish_long]]
+            "coordinates": coord_array,
         },
         "properties": {
             "name": s_name,
@@ -116,15 +111,19 @@ function build_stage_JSON() {
      * Builds Markers for the stage_GeoJSON and places it on the map in a new Layer
      */
     function addNewStageLayer(JSON) {
-        // var route = route.coordinates(JSON);
+
+         var stage = L.geoJSON(JSON);
+         // var s_marker = L.marker(JSON.coordinates[0]).bindPopup(document.getElementById("s_start_wiki").value);
+         // var f_marker = L.marker(JSON.coordinates[JSON.coordinates.length]).bindPopup(document.getElementById("s_finish_wiki").value);
         //
-        // var newLayer = L.geoJSON(stage_GeoJSON);
-        var s_marker = L.marker([39.61, -105.02]).bindPopup(document.getElementById("s_start_wiki").value).addTo(map);
-        // var f_marker = (control.getWaypoints()[control.getWaypoints().length - 1].latlng).bindPopup(document.getElementById("s_finish_wiki").value);
+        // var marker_pos = JSON.coordinates[0];
+        // console.log(marker_pos);
+        // L.marker(marker_pos).bindPopup("möp");
+         var stage_group = L.layerGroup([stage]).addTo(map);
+         layerControl.addOverlay(stage_group, JSON.properties.name);
 
-        // var stage_group = L.layerGroup([newLayer]).addTo(map);
-        // layerControl.addOverlay(stage_group, stage_GeoJSON.properties.name);
-
+         // Clears Route
+         control.getPlan().setWaypoints([]);
     }
 }
 

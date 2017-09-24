@@ -14,6 +14,6 @@ var baseMaps = {
     "OSM-Basemap": osm,
 };
 
-var layerControl = L.control.layers(baseMaps).addTo(map);
+var layerControl = L.control.layers(baseMaps, null, {position: "topleft"}).addTo(map);
 
 logger.info("Map Control is ready");
