@@ -9,6 +9,8 @@ logger.info("Control is ready");
 
 // Initializing global variable coord_array used for stages
 coord_array = [];
+var start_wiki;
+var finish_wiki;
 
 /**
  * Function started as route is constructed
@@ -76,7 +78,7 @@ control.on('routeselected', function (e) {
                 pText = pText.replace(/\[\d+\]/g, ""); //Remove reference tags (e.x. [1], [4], etc)
 
                 var s_first = pText.split("\n", 1); // Leaves only the first paragraph
-                document.getElementById("s_start_wiki").value = s_first;
+                start_wiki = s_first;
             }
         }
         catch (err) {
@@ -125,14 +127,13 @@ control.on('routeselected', function (e) {
                 pText = pText.replace(/\[\d+\]/g, ""); //Remove reference tags (e.x. [1], [4], etc)
 
                 var f_first = pText.split("\n", 1); // Leaves only the first paragraph
-                document.getElementById("s_finish_wiki").value = f_first;
+                finish_wiki = f_first;
             }
         }
         catch (err) {
             logger.info("There is no Wikipedia entry for: " + finish_wp.name.split(",", 1));
         }
     });
-
     logger.info("Your route was added to the form");
 });
 
