@@ -54,8 +54,8 @@ function build_GeoJSON() {
     function addNewLayer(JSON) {
 
         var marker_feature = L.geoJSON(JSON).addTo(map);
-        // marker_feature.addTo(feature_group);
-        marker_feature.bindPopup("möp").openPopup();
+        feature_group.addLayer(marker_feature);
+        marker_feature.bindPopup(JSON.properties.attributes.name).openPopup();
         map.fitBounds(marker_feature.getBounds());
 
         layerControl.addOverlay(marker_feature, JSON.properties.attributes.name);
@@ -138,7 +138,7 @@ function build_stage_JSON() {
 
         // builds layergroup for route and its markers
         var stage_group = L.layerGroup([stage, s_marker, f_marker]).addTo(map);
-        stage_group.addTo(feature_group);
+        // feature_group.addLayer(stage_group);
         layerControl.addOverlay(stage_group, JSON.properties.name);
 
         // Clears Route

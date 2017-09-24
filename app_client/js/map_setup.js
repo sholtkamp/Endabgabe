@@ -13,8 +13,8 @@ logger.info("Map is ready");
 var baseMaps = {
     "OSM-Basemap": osm,
 };
-var feature_group =  new L.TileLayer('');
-map.addLayer(feature_group);
+
+var feature_group =  new L.FeatureGroup().addTo(map);
 
 var layerControl = L.control.layers(baseMaps, null, {position: "topleft"}).addTo(map);
 
