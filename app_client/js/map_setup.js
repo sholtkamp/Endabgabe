@@ -14,8 +14,10 @@ var baseMaps = {
     "OSM-Basemap": osm,
 };
 
+//initializing feature group for search plugin
 var feature_group =  new L.FeatureGroup().addTo(map);
 
+//initializing layer control
 var layerControl = L.control.layers(baseMaps, null, {position: "topleft"}).addTo(map);
 
 logger.info("Map Control is ready");

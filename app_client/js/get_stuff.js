@@ -26,6 +26,6 @@ var getThisFeature = function (nameOfFeature) {
         url:'/api/retrieveFeature/' + nameOfFeature,
         success: function(data){
             console.log(data);
-            ///Hier dann zoomen oder so
+            ///Hier dann zoomen
         }
     })};

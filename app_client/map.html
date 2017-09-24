@@ -11,7 +11,6 @@
 
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-latest.js"></script>
-    <!--<script src="../node_modules/jquery/dist/jquery.min.js"></script>-->
 
     <!-- Bootstrap-->
     <!-- Latest compiled and minified CSS -->
@@ -24,9 +23,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
-    <!--<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">-->
-    <!--<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap-theme.css">-->
-    <!--<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>-->
 
     <!-- Leaflet -->
     <!-- CSS -->
@@ -37,8 +33,6 @@
     <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
             integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
             crossorigin=""></script>
-    <!--<link rel="stylesheet" href="../node_modules/leaflet/dist/leaflet.css">-->
-    <!--<script src="../node_modules/leaflet/dist/leaflet.js"></script>-->
 
     <!-- Leaflet Routing Machine -->
     <!-- CSS -->
@@ -46,8 +40,6 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.5/leaflet-routing-machine.css"/>
     <!-- JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.5/leaflet-routing-machine.js"></script>
-    <!--<link rel="stylesheet" href="../node_modules/leaflet-routing-machine/dist/leaflet-routing-machine.css"/>-->
-    <!--+    <script src="../node_modules/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>-->
 
     <!-- Leaflet Search -->
     <link rel="stylesheet"
@@ -108,17 +100,8 @@
         <!-- middle-->
         <div class="col-xs-12 col-sm-12 col-lg-3 col-xl-3">
 
-            <!--Search function-->
-            <div class="input-group" id="search">
-                <input type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Los!</button>
-                </span>
-            </div><!-- /input-group -->
-
-
             <div class="panel panel-default">
-                <div class="panel-heading" data-toggle="collapse" data-target="#featureName, #getFeature, #getStage, .breaks">
+                <div class="panel-heading" data-toggle="collapse" data-target="#featureName, #getFeature, #getStage, .breaks, #deleteEntry">
                     <h3 class="panel-title"><span class="glyphicon glyphicon-open-file"></span> Import From Database
                     </h3>
                 </div>
@@ -131,11 +114,10 @@
                 <button class="btn btn-block btn-success collapse" id="getStage" onclick="retrieveStage()">Import Stage from
                     Database
                 </button>
-                <!--<button class="btn btn-block btn-danger collapse" id="deleteEntry" onclick="deleteEntry()">Delete Entry from-->
-                    <!--Database-->
-                <!--</button>-->
+                <button class="btn btn-block btn-danger collapse" id="deleteEntry" onclick="deleteEntry()">Delete Entry from
+                    Database
+                </button>
             </div>
-
 
             <!--Adding new Feature function-->
             <div class="panel panel-default">
