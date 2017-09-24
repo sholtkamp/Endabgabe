@@ -45,38 +45,43 @@ module.exports = {
         })
     },
 
-//neu
-
     saveStage: function (req, res) {
 
         logger.info("Made it to app.js/saveStage");
-        var feature = new Feature;
+        var stage = new Stage;
 
-        feature.type = req.body.type;
-        feature.properties = req.body.properties;
-        feature.geometry = req.body.geometry;
+        stage.type = req.body.type;
+        stage.geometry = req.body.geometry;
+        stage.properties = req.body.properties;
 
+        console.log(req);
 
-        feature.save(function (err) {
-            console.log("saved");
-            console.log(feature);
-            return res.status(200);
+        console.log(stage);
+
+        stage.save(function (err) {
+            if (err) {
+                console.log(err);
+                res.status(400).send(err);
+            } else {
+                console.log("saved");
+                console.log(stage);
+                return res.status(200);
+            }
         })
     },
 
     retrieveStage: function (req, res) {
         console.log(req.params.name)
-        Feature.findById(req.params.name, function (err, feature) {
+        Stage.find({ 'properties.attributes.name' : req.params.name}, function (err, stage) {
             if (err) {
                 console.log('ERROR')
-                res.status(404).json("feature not found");
+                res.status(404).json("stage not found");
             }
             else {
-                console.log(feature)
-                res.status(200).json(feature);
+                console.log(stage)
+                res.status(200).json(stage);
             }
         })
     }
 };
 
-//neu ende

@@ -8,9 +8,8 @@ var retrieveFeature = function () {
         }
     })};
 
-//neu
 var retrieveStage = function () {
-    var name = document.getElementById("nameFeature").value;
+    var name = document.getElementById("featureName").value;
     $.ajax({
         method: 'GET',
         url:'/api/retrieveFeature/' + name,
@@ -19,8 +18,8 @@ var retrieveStage = function () {
         }
     })};
 
-//neu ende
 
+// Permalink stub
 var getThisFeature = function (nameOfFeature) {
     $.ajax({
         method: 'GET',

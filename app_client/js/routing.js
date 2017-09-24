@@ -5,6 +5,8 @@ control = L.Routing.control({
     geocoder: L.Control.Geocoder.nominatim(),
     router: L.Routing.mapbox('pk.eyJ1Ijoibm9jZW9uIiwiYSI6ImNpenpwc3N0aTAyNWIycWxqdG54NnpxOWUifQ.gjSEXP47NeZUiVF0_T9kXQ')
 }).addTo(map);
+searchcontrol = ( new L.Control.Search()).addTo(map);
+
 logger.info("Control is ready");
 
 // Initializing global variable coord_array used for stages

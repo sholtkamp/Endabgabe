@@ -19,23 +19,25 @@ saveFeature = function (feature) {
     });
 };
 
-//neu//
 saveStage = function(stage){
     console.log("Got this Stage: ");
     console.log(stage);
     console.log("Work in progress: saveStage");
+    console.log(typeof stage);
+
     $.ajax({
         method: 'POST',
         data: stage,
-        dataType: 'json',
-        contentType: 'json',
+        // contentType: 'json',
+        // dataType: 'json',
         url: '/api/saveStage',
         success: function(){
-            console.log("saved stage")
+            console.log("saved stage");
+            console.log(stage);
+            console.log(res);
         },
         error: function () {
             console.log("failed to save stage")
         }
     });
 };
-//neu ende

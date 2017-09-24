@@ -54,11 +54,11 @@ function build_GeoJSON() {
     function addNewLayer(JSON) {
 
         var marker_feature = L.geoJSON(JSON).addTo(map);
+        // marker_feature.addTo(feature_group);
         marker_feature.bindPopup("möp").openPopup();
         map.fitBounds(marker_feature.getBounds());
 
-        layerControl.addOverlay(marker_feature, JSON.properties.name);
-
+        layerControl.addOverlay(marker_feature, JSON.properties.attributes.name);
     }
 }
 
@@ -99,7 +99,7 @@ function build_stage_JSON() {
         }
     };
     logger.info("build_stage_GeoJSON was called");
-    logger.info(stage_GeoJSON);
+    console.log(stage_GeoJSON);
     logger.info("was built");
 
     addNewStageLayer(stage_GeoJSON);
@@ -111,24 +111,35 @@ function build_stage_JSON() {
 
         var stage = L.geoJSON(JSON);
 
-        //builds wiki marker for start
-        var s_lat = (coord_array[0][0]);
-        var s_lng = (coord_array[0][1]);
-        var s_latlng = L.latLng(s_lng, s_lat);
-        var s_marker = L.marker(s_latlng);
-        s_marker.bindPopup(start_wiki.toString());
+        try {
+            //builds wiki marker for start
+            var s_lat = (coord_array[0][0]);
+            var s_lng = (coord_array[0][1]);
+            var s_latlng = L.latLng(s_lng, s_lat);
+            var s_marker = L.marker(s_latlng);
+            s_marker.bindPopup(start_wiki.toString());
+        }
+        catch (err) {
+            console.log("Nor marker added for start");
+        }
 
-        //builds wiki marker for finish
-        var f_lat = (coord_array[coord_array.length - 1][0]);
-        var f_lng = (coord_array[coord_array.length - 1][1]);
-        var f_latlng = L.latLng(f_lng, f_lat);
-        var f_marker = L.marker(f_latlng);
-        f_marker.bindPopup(finish_wiki.toString());
+       try {
+
+           //builds wiki marker for finish
+           var f_lat = (coord_array[coord_array.length - 1][0]);
+           var f_lng = (coord_array[coord_array.length - 1][1]);
+           var f_latlng = L.latLng(f_lng, f_lat);
+           var f_marker = L.marker(f_latlng);
+           f_marker.bindPopup(finish_wiki.toString());
+       }
+       catch (err) {
+           console.log("Nor marker added for finish");
+       }
 
         // builds layergroup for route and its markers
         var stage_group = L.layerGroup([stage, s_marker, f_marker]).addTo(map);
+        stage_group.addTo(feature_group);
         layerControl.addOverlay(stage_group, JSON.properties.name);
-        map.fitBounds(stage_group);
 
         // Clears Route
         control.getPlan().setWaypoints([]);

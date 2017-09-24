@@ -17,7 +17,8 @@ var featureSchema = new mongoose.Schema({
             enum: ["Point"],
             default: "Point"
         },
-        "coordinates": {type: [Number]}
+        "coordinates": {
+            type: [Number]}
     },
 
     properties: {
@@ -57,7 +58,9 @@ var stageSchema = new mongoose.Schema({
     geometry: {
         "type": {
             type: String,
-            required: true
+            required: true,
+            enum: ["LineString"],
+            default: "LineString"
         },
         "coordinates": {
                 type: [Number]}

@@ -49,6 +49,11 @@
     <!--<link rel="stylesheet" href="../node_modules/leaflet-routing-machine/dist/leaflet-routing-machine.css"/>-->
     <!--+    <script src="../node_modules/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>-->
 
+    <!--&lt;!&ndash; Leaflet Search &ndash;&gt;-->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/leaflet-search@2.3.6/dist/leaflet-search.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.3.6/dist/leaflet-search.min.js"></script>
+
     <!-- JSNLog -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsnlog/2.24.1/jsnlog.min.js"></script>
     <script src="js/jsnlogger.js"></script>
@@ -113,14 +118,22 @@
 
 
             <div class="panel panel-default">
-                <div class="panel-heading" data-toggle="collapse" data-target="#featureName, #getFeature">
+                <div class="panel-heading" data-toggle="collapse" data-target="#featureName, #getFeature, #getStage, .breaks">
                     <h3 class="panel-title"><span class="glyphicon glyphicon-open-file"></span> Import From Database
                     </h3>
                 </div>
-                <input id="featureName" class="form-control collapse" placeholder="Feature Name">
-                <button class="btn btn-block collapse" id="getFeature" onclick="retrieveFeature()">Import from
+                <br class="collapse breaks">
+                <input id="featureName" class="form-control collapse" placeholder="Feature/ Stage Name">
+                <br class="collapse breaks">
+                <button class="btn btn-block btn-success collapse" id="getFeature" onclick="retrieveFeature()">Import Feature from
                     Database
                 </button>
+                <button class="btn btn-block btn-success collapse" id="getStage" onclick="retrieveStage()">Import Stage from
+                    Database
+                </button>
+                <!--<button class="btn btn-block btn-danger collapse" id="deleteEntry" onclick="deleteEntry()">Delete Entry from-->
+                    <!--Database-->
+                <!--</button>-->
             </div>
 
 
@@ -133,8 +146,8 @@
                 <form id="create_form" class="collapse">
 
                     <div class="form-inline">
-                        <label>Coordinates:&nbsp;</label><span class="glyphicon glyphicon-screenshot"
-                                                               onclick="set_place()">  </span>
+                        <label>Coordinates: &nbsp;</label><span class="glyphicon glyphicon-screenshot"
+                                                               onclick="set_place()"> </span>
                         <br>
                         <input type="number" class="form-control" id="lat" placeholder="Enter Latitude">
                         <input type="number" class="form-control" id="long" placeholder="Enter Longitude">
@@ -189,30 +202,25 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="hidden" class="form-control" id="stage_coordinates" placeholder="Enter a Name here">
+                        <input type="hidden" class="form-control" id="stage_coordinates"
+                               placeholder="Enter a Name here">
                     </div>
 
                     <div class="form-inline">
                         <label>Starting Point</label><br>
                         <input type="text" class="form-control" id="s_start_place" placeholder="Enter City">
-                        <!--<input type="number" class="form-control" id="s_start_lat" placeholder="Enter Latitude">-->
-                        <!--<input type="number" class="form-control" id="s_start_long" placeholder="Enter Longitude">-->
-                        <!--<input hidden type="hidden" class="form-control" id="s_start_wiki">-->
                     </div>
                     <br>
                     <div class="form-inline">
                         <label>Finish Point</label><br>
                         <input type="text" class="form-control" id="s_finish_place" placeholder="Enter City">
-                        <!--<input type="number" class="form-control" id="s_finish_lat" placeholder="Enter Latitude">-->
-                        <!--<input type="number" class="form-control" id="s_finish_long" placeholder="Enter Longitude">-->
-                        <!--<input type="hidden" class="form-control" id="s_finish_wiki">-->
                     </div>
                     <br>
                     <div class="form-inline">
                         <label>Dates: </label>
                         <br>
                         <input type="date" class="form-control" id="s_start_date">
-                         -
+                        -
                         <input type="date" class="form-control" id="s_finish_date">
                     </div>
                     <br>
@@ -237,7 +245,7 @@
                 </button>
                 <button
                         id="post_stage_button" class="btn btn-success btn-block collapse"
-                        onclick="saveFeature(feature_GeoJSON)">Save to Database
+                        onclick="saveStage(stage_GeoJSON)">Save to Database
                 </button>
             </div>
         </div>
