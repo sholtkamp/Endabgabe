@@ -5,7 +5,6 @@ var Stage = mongoose.model("Stage");
 module.exports = {
     saveFeature: function (req, res) {
 
-        console.log("Made it to app.js/saveFeature");
         var feature = new Feature;
 
         feature.type = req.body.type;
@@ -25,7 +24,6 @@ module.exports = {
                 res.status(400).send(err);
             } else {
                 console.log("saved");
-                console.log(feature);
                 res.status(200).send(feature);
             }
         })
@@ -47,12 +45,18 @@ module.exports = {
 
     saveStage: function (req, res) {
 
-        logger.info("Made it to app.js/saveStage");
         var stage = new Stage;
 
         stage.type = req.body.type;
         stage.geometry = req.body.geometry;
-        stage.properties = req.body.properties;
+        stage.properties.name = req.body.properties.name;
+        stage.properties.start = req.body.properties.start;
+        stage.properties.finish = req.body.properties.finish;
+        stage.properties.start_date = req.body.properties.start_date;
+        stage.properties.finish_date = req.body.properties.finish_date;
+        stage.properties.link = req.body.properties.link;
+        stage.properties.start_pic = req.body.properties.start_pic;
+        stage.properties.finish_pic = req.body.properties.finish_pic;
 
         console.log(req);
 
@@ -64,8 +68,7 @@ module.exports = {
                 res.status(400).send(err);
             } else {
                 console.log("saved");
-                console.log(stage);
-                return res.status(200);
+                res.status(200).send(stage);
             }
         })
     },

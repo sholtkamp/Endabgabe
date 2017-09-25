@@ -63,11 +63,37 @@ var stageSchema = new mongoose.Schema({
             default: "LineString"
         },
         "coordinates": {
-                type: [Number]}
+                type: [[Number]]}
     },
 
     properties: {
-        type: [mongoose.Schema.Types.Mixed]
+        "name":{
+            type: String,
+            required: true,
+        },
+        "start": {
+            type: String,
+            required: true,
+        },
+        "finish": {
+            type: String,
+            required: true,
+        },
+        "start_date": {
+            type: Number,
+        },
+        "finish_date": {
+            type: Number,
+        },
+        "link": {
+            type: String,
+        },
+        "start_pic": {
+            type: String,
+        },
+        "finish_pic": {
+            type: String,
+        }
     }
 });
 
