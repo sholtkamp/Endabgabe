@@ -1,6 +1,9 @@
 var feature_GeoJSON;
 var stage_GeoJSON;
 
+/**
+ * Used to gather coordinates on map per click
+ */
 function set_place() {
 
     map.on('click', function (e) {
@@ -14,7 +17,6 @@ function build_GeoJSON() {
     /**
      * Fetching form data
      */
-
     var lat = document.getElementById("lat").value;
     var long = document.getElementById("long").value;
     var cat = document.getElementById("cat").value;
