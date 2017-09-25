@@ -2,6 +2,7 @@ var feature_GeoJSON;
 var stage_GeoJSON;
 
 function set_place() {
+
     map.on('click', function (e) {
         document.getElementById("lat").value = e.latlng.lat;
         document.getElementById("long").value = e.latlng.lng;
@@ -53,10 +54,18 @@ function build_GeoJSON() {
      */
     function addNewLayer(JSON) {
 
-        var marker_feature = L.geoJSON(JSON).addTo(map);
+        var mark_lat = (JSON.geometry.coordinates[0]);
+        var mark_lng = (JSON.geometry.coordinates[1]);
+        console.log(mark_lat);
+        console.log(mark_lng);
+
+        var marker_feature = L.marker([mark_lat, mark_lng]);
         feature_group.addLayer(marker_feature);
-        marker_feature.bindPopup(JSON.properties.attributes.name).openPopup();
-        map.fitBounds(marker_feature.getBounds());
+        marker_feature.bindPopup("Name: " + JSON.properties.attributes.name + "<br><br>" +
+            "Category: " + JSON.properties.category + "<br>" +
+            "Price: " + JSON.properties.attributes.price + "<br>" +
+            "Capacity: " + JSON.properties.attributes.capacity).openPopup();
+        // map.fitBounds(marker_feature.getBounds());
 
         layerControl.addOverlay(marker_feature, JSON.properties.attributes.name);
     }

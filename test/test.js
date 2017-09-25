@@ -17,3 +17,15 @@ describe('Array', function() {
     });
 });
 
+/**
+ * Following Tests WILL fail because of referencing problems
+ */
+var routing = require("../app_client/js/routing.js");
+
+describe("Store Coordinate", function(){
+    it("Should return filled array when used", function(){
+
+        assert.equal([0, 0], storeCoordinate(0, 0));
+    })
+});
+

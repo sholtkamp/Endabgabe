@@ -30,14 +30,14 @@ module.exports = {
     },
 
     retrieveFeature: function (req, res) {
-        console.log(req.params.name)
+        console.log(req.params.name);
         Feature.find({ 'properties.attributes.name' : req.params.name }, function (err, feature) {
             if (err) {
-                console.log('ERROR')
+                console.log('ERROR');
                 res.status(404).json("feature not found");
             }
             else {
-                console.log(feature)
+                console.log(feature);
                 res.status(200).json(feature);
             }
         })
@@ -74,14 +74,14 @@ module.exports = {
     },
 
     retrieveStage: function (req, res) {
-        console.log(req.params.name)
-        Stage.find({ 'properties.attributes.name' : req.params.name}, function (err, stage) {
+        console.log(req.params.name);
+        Stage.find({ 'properties.name' : req.params.name}, function (err, stage) {
             if (err) {
-                console.log('ERROR')
+                console.log('ERROR');
                 res.status(404).json("stage not found");
             }
             else {
-                console.log(stage)
+                console.log(stage);
                 res.status(200).json(stage);
             }
         })

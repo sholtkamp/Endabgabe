@@ -101,12 +101,12 @@
         <div class="col-xs-12 col-sm-12 col-lg-3 col-xl-3">
 
             <div class="panel panel-default">
-                <div class="panel-heading" data-toggle="collapse" data-target="#featureName, #getFeature, #getStage, .breaks, #deleteEntry">
+                <div class="panel-heading" data-toggle="collapse" data-target="#ID_Name, #getFeature, #getStage, .breaks, #deleteEntry">
                     <h3 class="panel-title"><span class="glyphicon glyphicon-open-file"></span> Import From Database
                     </h3>
                 </div>
                 <br class="collapse breaks">
-                <input id="featureName" class="form-control collapse" placeholder="Feature/ Stage Name">
+                <input id="ID_Name" class="form-control collapse" placeholder="Feature/ Stage Name">
                 <br class="collapse breaks">
                 <button class="btn btn-block btn-success collapse" id="getFeature" onclick="retrieveFeature()">Import Feature from
                     Database
@@ -122,17 +122,19 @@
             <!--Adding new Feature function-->
             <div class="panel panel-default">
                 <div class="panel-heading" data-toggle="collapse"
-                     data-target="#create_form, #create_button, #post_feature_button">
+                     data-target="#create_form, #create_button, #post_feature_button, #coord_button">
                     <h3 class="panel-title"><span class="glyphicon glyphicon-map-marker"></span> Add new Feature</h3>
                 </div>
                 <form id="create_form" class="collapse">
 
                     <div class="form-inline">
-                        <label>Coordinates: &nbsp;</label><span class="glyphicon glyphicon-screenshot"
-                                                               onclick="set_place()"> </span>
+                        <label>Coordinates: &nbsp;</label>
                         <br>
                         <input type="number" class="form-control" id="lat" placeholder="Enter Latitude">
                         <input type="number" class="form-control" id="long" placeholder="Enter Longitude">
+                        <button id="coord_button" type="button" class="btn btn-success collapse" onclick="set_place()">
+                            <span class="glyphicon glyphicon-screenshot"></span> Click Map for Coordinates
+                        </button>
                     </div>
                     <br>
                     <div class="form-group">
@@ -260,6 +262,14 @@
                                 class="glyphicon glyphicon-screenshot"></span> Show on Map
                         </button>
                     </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading ">
+                    <h3 class="panel-title">Permalinks</h3>
+                </div>
+                <div id="link_div" class="panel-body">
+
                 </div>
             </div>
         </div>
